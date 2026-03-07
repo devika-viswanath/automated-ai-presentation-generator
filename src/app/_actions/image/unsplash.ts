@@ -3,6 +3,7 @@
 import { type LayoutType } from "@/components/presentation/utils/parser";
 import { env } from "@/env";
 
+//UnsplashSearchResponse describe expected Unsplash JSON shape.
 export interface UnsplashImage {
   id: string;
   urls: {
@@ -28,6 +29,7 @@ export interface UnsplashSearchResponse {
   total: number;
   total_pages: number;
 }
+//getImageFromUnsplash(query, layoutType)
 
 export async function getImageFromUnsplash(
   query: string,

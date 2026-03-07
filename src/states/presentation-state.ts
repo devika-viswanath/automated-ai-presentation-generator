@@ -5,12 +5,13 @@ import { type TElement } from "platejs";
 import { create } from "zustand";
 
 interface PresentationState {
+  //the ID of the currently active presentation.
   currentPresentationId: string | null;
   currentPresentationTitle: string | null;
   isGridView: boolean;
   isSheetOpen: boolean;
   numSlides: number;
-
+//The selected theme for the presentation.
   theme: Themes | string;
   customThemeData: ThemeProperties | null;
   language: string;
@@ -33,6 +34,7 @@ interface PresentationState {
   // Generation states
   shouldStartOutlineGeneration: boolean;
   shouldStartPresentationGeneration: boolean;
+  //Tracks whether the outline generation process is running.
   isGeneratingOutline: boolean;
   isGeneratingPresentation: boolean;
   outline: string[];
@@ -122,7 +124,7 @@ interface PresentationState {
   pendingInsertNode: TElement | null;
   setPendingInsertNode: (node: TElement | null) => void;
 }
-
+//state create --
 export const usePresentationState = create<PresentationState>((set) => ({
   currentPresentationId: null,
   currentPresentationTitle: null,

@@ -5,6 +5,8 @@ import { type LanguageModelV1 } from "ai";
  * Centralized model picker function for all presentation generation routes
  * Uses Gemini as the single text model
  */
+
+// create gemini client ,it select model and return it to the ai sdk
 export function modelPicker(
   _modelProvider: string,
   _modelId?: string,

@@ -353,7 +353,8 @@ export class PlateJSToPPTXConverter {
       if (currentY >= area.y + area.h) break;
     }
   }
-
+//h1 to h6 to represent hierarchical heading levels. 
+// Each heading level maps to a different font size in the PowerPoint slide
   private async processElement(
     element: PlateNode,
     x: number,

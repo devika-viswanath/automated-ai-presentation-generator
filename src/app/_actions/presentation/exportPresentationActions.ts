@@ -11,6 +11,8 @@ function arrayBufferToBase64(buffer: ArrayBuffer): string {
   return btoa(binary);
 }
 
+// The function returns the Base64 string and file name for download.
+
 export async function exportPresentation(
   presentationId: string,
   fileName?: string,

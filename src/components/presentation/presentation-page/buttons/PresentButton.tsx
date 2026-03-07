@@ -5,16 +5,21 @@ import { usePresentationState } from "@/states/presentation-state";
 import { Play, X } from "lucide-react";
 
 export function PresentButton() {
+  //Tracks whether the presentation is currently in "Present" mode.
   const isPresenting = usePresentationState((s) => s.isPresenting);
+  //fun toggle presentation mode on and off
   const setIsPresenting = usePresentationState((s) => s.setIsPresenting);
+  //preseentation is running or not
   const isGeneratingPresentation = usePresentationState(
     (s) => s.isGeneratingPresentation,
   );
+  //track outline gen process is running or not
   const isGeneratingOutline = usePresentationState(
     (s) => s.isGeneratingOutline,
   );
 
-  // Check if generation is in progress
+  // Check if generation is in progress ,combine both presentation and outline generation states
+  //  to determine if any generation process is active. This is used to disable the Present button and show a loading state while generation is happening.
   const isGenerating = isGeneratingPresentation || isGeneratingOutline;
 
   return (

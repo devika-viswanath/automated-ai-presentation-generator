@@ -14,6 +14,7 @@ interface SlidesRequest {
   searchResults?: Array<{ query: string; results: unknown[] }>; // Search results for context
 }
 // TODO: Add table and chart to the available layouts
+//build prompt that tell exact xml format,layout rules,image rules,slidecount etc
 const slidesTemplate = `
 You are an expert presentation designer.Your task is to create an engaging presentation in XML format.
 ## CORE REQUIREMENTS
@@ -250,7 +251,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // Format search results
+    // Format search results for contex
     let searchResultsText = "No research data available.";
     if (searchResults && searchResults.length > 0) {
       const searchData = searchResults

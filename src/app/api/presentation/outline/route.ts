@@ -86,7 +86,7 @@ export async function POST(req: Request) {
       month: "long",
       day: "numeric",
     });
-
+//get model from model picker
     const model = modelPicker(modelProvider, modelId);
 
     // Format the prompt with template variables
@@ -96,6 +96,9 @@ export async function POST(req: Request) {
       .replace(/{currentDate}/g, currentDate)
       .replace(/{prompt}/g, prompt);
 
+
+  //streamText sends the prompt to Gemini 
+  // and streams the response token by token
     const result = streamText({
       model,
       prompt: formattedPrompt,
